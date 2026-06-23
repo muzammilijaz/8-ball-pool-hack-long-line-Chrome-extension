@@ -1,0 +1,50 @@
+{
+  "extName": {
+    "message": "8 Ball Pool Helper",
+    "description": "Name of the extension"
+  },
+  "extDescription": {
+    "message": "Aim-guide overlay for Miniclip 8 Ball Pool. Draw guidelines to sink balls with ease.",
+    "description": "Description of the extension"
+  },
+  "popupToggleLabel": {
+    "message": "Enable Overlay",
+    "description": "Label for the main on/off toggle in the popup"
+  },
+  "popupModeLabel": {
+    "message": "Guide Mode",
+    "description": "Label for the guide mode selector"
+  },
+  "popupModePockets": {
+    "message": "Pockets",
+    "description": "Mode: show lines from all 6 pockets to mouse cursor"
+  },
+  "popupModeCue": {
+    "message": "Cue Stick",
+    "description": "Mode: show a single aim line from cue ball toward mouse"
+  },
+  "popupModeBoth": {
+    "message": "Both",
+    "description": "Mode: show both pocket lines and cue stick line"
+  },
+  "popupOpacityLabel": {
+    "message": "Line Opacity",
+    "description": "Label for the opacity slider"
+  },
+  "popupColorLabel": {
+    "message": "Line Color",
+    "description": "Label for the color picker"
+  },
+  "statusGameDetected": {
+    "message": "Game detected — overlay ready",
+    "description": "Status shown when the user is on the Miniclip game page"
+  },
+  "statusNotGamePage": {
+    "message": "Visit miniclip.com/games/8-ball-pool to use",
+    "description": "Status shown when the user is not on the game page"
+  },
+  "shortcutHint": {
+    "message": "Press Shift to toggle the overlay while playing",
+    "description": "Keyboard shortcut reminder in popup"
+  }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8 Ball Pool Helper</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-icon">🎱</div>
+    <div class="header-text">
+      <div class="header-title">8 Ball Pool Helper</div>
+      <div class="header-subtitle">Aim-guide overlay for 8ballpool.com</div>
+    </div>
+    <div class="version-badge">v1.0</div>
+  </div>
+
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <div class="status-dot" id="statusDot"></div>
+    <div class="status-label" id="statusLabel">Checking page…</div>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <!-- Master Toggle Card -->
+    <div class="card">
+      <div class="master-toggle">
+        <div>
+          <div class="master-toggle-label">Overlay</div>
+          <div class="master-toggle-sub">Show aim-guide lines on the game</div>
+        </div>
+        <label class="toggle" id="masterToggleLabel">
+          <input type="checkbox" id="masterToggle" checked />
+          <div class="toggle-track">
+            <div class="toggle-thumb"></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="shortcut-hint">
+        <span>💡</span>
+        <span>Press <kbd>Shift</kbd> while in the game to quickly toggle the overlay</span>
+      </div>
+    </div>
+
+    <!-- Settings Card -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Settings</span>
+      </div>
+      <div class="card-body">
+
+        <!-- Mode selector -->
+        <div>
+          <div class="slider-label" style="margin-bottom:8px;">
+            <span>Guide Mode</span>
+          </div>
+          <div class="mode-grid" id="modeGrid">
+            <button class="mode-btn" data-mode="pockets" id="modePockets">
+              <span class="icon">🕳️</span>
+              <span>Pockets</span>
+            </button>
+            <button class="mode-btn active" data-mode="both" id="modeBoth">
+              <span class="icon">✨</span>
+              <span>Both</span>
+            </button>
+            <button class="mode-btn" data-mode="cue" id="modeCue">
+              <span class="icon">🎯</span>
+              <span>Cue Line</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Opacity slider -->
+        <div class="slider-row">
+          <div class="slider-label">
+            <span>Line Opacity</span>
+            <span class="slider-value" id="opacityValue">75%</span>
+          </div>
+          <input type="range" id="opacitySlider" min="10" max="100" value="75" />
+        </div>
+
+        <!-- Color picker -->
+        <div class="color-row">
+          <span class="color-label">Line Color</span>
+          <div class="color-swatches" id="colorSwatches">
+            <div class="swatch" data-color="#ffffff" style="background:#ffffff;" title="White"></div>
+            <div class="swatch" data-color="#4f9dff" style="background:#4f9dff;" title="Blue"></div>
+            <div class="swatch" data-color="#22d473" style="background:#22d473;" title="Green"></div>
+            <div class="swatch" data-color="#f5c842" style="background:#f5c842;" title="Gold"></div>
+            <div class="swatch active" data-color="#ff4f6b" style="background:#ff4f6b;" title="Red"></div>
+            <div class="color-custom" title="Custom color">
+              <input type="color" id="customColor" value="#ff4f6b" />
+              <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--text-muted);pointer-events:none;">+</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Table Calibration Card -->
+    <div class="card" id="calibCard">
+      <div class="card-header calib-header" id="calibToggleBtn" style="cursor:pointer;">
+        <span class="card-title">Table Calibration</span>
+        <span class="calib-hint" id="calibArrow">expand</span>
+      </div>
+      <div class="card-body" id="calibBody" style="display:none;">
+
+        <div class="calib-info">
+          If lines appear outside the table, adjust these sliders until the
+          <strong>dashed outline</strong> on screen matches the table edge.
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-label">
+            <span>Top edge</span>
+            <span class="slider-value" id="tbTopVal">7%</span>
+          </div>
+          <input type="range" id="tbTop" min="0" max="30" value="7" step="1" />
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-label">
+            <span>Bottom edge</span>
+            <span class="slider-value" id="tbBotVal">78%</span>
+          </div>
+          <input type="range" id="tbBot" min="50" max="100" value="78" step="1" />
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-label">
+            <span>Left edge</span>
+            <span class="slider-value" id="tbLeftVal">4%</span>
+          </div>
+          <input type="range" id="tbLeft" min="0" max="30" value="4" step="1" />
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-label">
+            <span>Right edge</span>
+            <span class="slider-value" id="tbRightVal">92%</span>
+          </div>
+          <input type="range" id="tbRight" min="50" max="100" value="92" step="1" />
+        </div>
+
+        <button class="reset-btn" id="resetCalib">Reset to defaults</button>
+
+      </div>
+    </div>
+
+    <!-- Buy Me a Coffee -->
+    <a href="https://muzammilijaz.gumroad.com/coffee" target="_blank" class="coffee-btn">
+      <span class="coffee-icon">☕</span>
+      <span>Buy Me a Coffee</span>
+    </a>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Made with love &nbsp;&middot;&nbsp;
+    <a href="https://github.com/muzammilijaz/8-ball-pool-hack-long-line-Chrome-extension.git" target="_blank">GitHub</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

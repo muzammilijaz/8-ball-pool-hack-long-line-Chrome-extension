@@ -1,0 +1,56 @@
+{
+  "name": "8 Ball Pool Helper",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Aim-guide overlay for Miniclip 8 Ball Pool — draw guidelines to pocket balls with ease.",
+  "homepage_url": "https://github.com/muzammilijaz/8-ball-pool-hack-long-line-Chrome-extension.git",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "8 Ball Pool Helper",
+    "default_popup": "src/page_action/page_action.html"
+  },
+  "background": {
+    "service_worker": "src/bg/background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.miniclip.com/*",
+    "https://*.miniclip.com/*",
+    "https://8ballpool.com/*",
+    "https://*.8ballpool.com/*",
+    "https://www.8ballpool.com/*",
+    "https://8ball.io/*",
+    "https://www.8ball.io/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.miniclip.com/*",
+        "https://*.miniclip.com/*",
+        "https://8ballpool.com/*",
+        "https://*.8ballpool.com/*",
+        "https://8ball.io/*",
+        "https://www.8ball.io/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
