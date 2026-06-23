@@ -1,7 +1,9 @@
 # 🎱 8 Ball Pool Helper — Long Aim Line Chrome Extension
 
 <p align="center">
-  <img src="8ball%20-1.png" alt="8 Ball Pool Helper Preview" width="650" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);" />
+  <img src="8ball%20-1.png" alt="8 Ball Pool Helper Game Preview" width="650" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); margin-bottom: 10px;" />
+  <br />
+  <img src="8b2.png" alt="8 Ball Pool Helper UI Preview" width="650" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);" />
 </p>
 
 A modern, high-precision Google Chrome extension that provides a real-time aim-guideline overlay for [8ballpool.com](https://8ballpool.com/game). Completely redesigned from the ground up, built on **Manifest V3**, utilizing direct **WebGL frame buffer pixel detection** for automatic cue ball tracking, and featuring custom screen boundary calibration.
